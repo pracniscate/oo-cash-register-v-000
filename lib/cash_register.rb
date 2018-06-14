@@ -20,11 +20,17 @@ class CashRegister
   end
 
   def apply_discount
-    # apply the discount to the total
-    # transform the discount into a floating point
-    @total -= (@total * (@discount / 100.to_f))
-    # success message
-    "After the discount, the total comes to $#{@total.to_i}."
+    if discount != 0 # if there is a discount to apply
+      # apply the discount to the total
+      # reduce the total
+      # transform the discount into a floating point
+      @total -= (@total * (@discount / 100.to_f))
+      # success message
+      # and back to integer from the float 
+      "After the discount, the total comes to $#{@total.to_i}."
+    else
+      "There is no discount to apply."
+    end
   end
 
 end
