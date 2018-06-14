@@ -24,7 +24,7 @@ class CashRegister
     # transform the discount into a floating point
     @total -= (@total * (@discount / 100.to_f))
     # success message
-    "After the discount, the total comes to #{@total.to_i}."
+    "After the discount, the total comes to $#{@total.to_i}."
   end
 
 end
