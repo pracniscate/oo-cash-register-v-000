@@ -33,8 +33,8 @@ class CashRegister
     end
   end
 
-  def items # return an array containing all items that have been added 
-    @items 
+  def items # return an array containing all items that have been added
+    @items
   end
 
 end
