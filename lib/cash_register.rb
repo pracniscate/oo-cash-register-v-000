@@ -7,6 +7,7 @@ class CashRegister
     # optionally takes an employee discount on initialization
     @discount = discount
     @items = []
+    @last_transaction # needed to void last transaction
   end
 
   def add_item(title, price, quantity = 1)
@@ -17,6 +18,7 @@ class CashRegister
     quantity.times do
       @items << title
     end
+    @last_transaction = price * quantity
   end
 
   def apply_discount
@@ -35,6 +37,11 @@ class CashRegister
 
   def items # return an array containing all items that have been added
     @items
+  end
+
+  def void_last_transaction # subtract the last transaction from the total
+    @items.delete_at(-1)
+    self.total = self.total - @last_item
   end
 
 end
