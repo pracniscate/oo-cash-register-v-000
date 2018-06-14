@@ -26,7 +26,7 @@ class CashRegister
       # apply the discount to the total
       # reduce the total
       # transform the discount into a floating point
-      @total -= (@total * (@discount / 100))
+      @total -= (@total * (@discount / 100.to_f))
       # success message
       # and back to integer from the float
       "After the discount, the total comes to $#{@total.to_i}."
@@ -41,7 +41,7 @@ class CashRegister
 
   def void_last_transaction # subtract the last transaction from the total
     @items.delete_at(-1)
-    self.total = self.total - @last_item
+    self.total = self.total - @last_transaction
   end
 
 end
